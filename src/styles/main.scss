@@ -3,6 +3,7 @@
 
 body{
   font-family: $font;
+  color: $light;
   font-weight: 400;
   background-color: #1F2023;
 }
@@ -12,12 +13,13 @@ a {
 }
 
 .header{
+  width: 100%;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   height: 71px;
-  position: relative;
-  margin-bottom: 65px;
+  position: fixed;
+  top: 0;
   &::before{
     display: block;
     content: '';
@@ -91,6 +93,7 @@ a {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+  box-sizing: border-box;
 }
 
 .banner {
@@ -99,56 +102,106 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50px;
-  padding-bottom: 100px;
+  padding: 100px 50px;
+  margin-top: 135px;
+  gap: 50px;
+  &__main{
+    flex-basis: 61%;
+  }
+  &__info{
+    flex-basis: calc(39% - 50px);
+  }
+  &__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 149px;
+    border: 1px solid $light;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    margin-right: 80px;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 151px;
+      background-image: url("../images/banner-info-decor.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top:-1px;
+      right: -80px;
+    }
+  }
   &__title{
     color: $light;
-    max-width: 750px;
     font-size: 64px;
     font-weight: 700;
+    line-height: 110%;
     text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    padding-top: 80px;
-    padding-left: 50px;
+    max-width: 750px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    //padding-top: 30px;
+    //padding-left: 50px;
   }
-  &-box {
-    border: 1px solid $light;
-    border-radius: 20px;
-    margin-left: 50px;
-    max-width: 1031px;
-    height: 236px;
-    position: relative;
-    margin-bottom: 135px;
-  }
-  &-box__title {
-    font-size: 24px;
+  &__btn {
+    display: block;
+    width: 100%;
     color: $light;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    letter-spacing: .25px;
-    padding-left: 30px;
+    background-color: $accent;
+    padding: 54px 420px;
+    border-radius: 20px;
+    border: 1px solid $accent;
+    transition: $tr;
+    cursor: pointer;
+    @media (hover: hover) {
+      &:hover{
+        background-color: transparent;
+      }
     }
-  &-box__text {
-    color: $light;
-    font-size: 24px;
-    line-height: 28px;
-    padding-left: 30px;
-    max-width: 570px;
-  }
-  &-box__img {
-    position: absolute;
-    top: -80px;
-    right: -30px;
   }
 }
-.button {
-  color: $light;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 110%;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  background-color: $accent;
-  padding: 54px 420px;
+
+.banner-box {
+  border: 1px solid $light;
   border-radius: 20px;
-  margin-left: 50px;
-  border: none;
-  max-width: 1031px;
+  margin-bottom: 130px;
+  padding: 30px 332px 17px 30px;
+  //max-width: 1031px;
+  //height: 236px;
+  position: relative;
+  &__title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    //padding-left: 30px;
+    margin-top: 0;
+  }
+  &__text {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+    //padding-left: 30px;
+    max-width: 565px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &__img {
+    position: absolute;
+    &._electroguitar {
+      top: -80px;
+      right: -30px;
+    }
+  }
 }
+
+
