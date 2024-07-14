@@ -20,6 +20,7 @@ a {
   height: 71px;
   position: fixed;
   top: 0;
+  z-index: 999;
   &::before{
     display: block;
     content: '';
@@ -105,14 +106,13 @@ a {
   padding: 100px 50px;
   margin-top: 135px;
   gap: 50px;
-  &__main{
+  &__main {
     flex-basis: 59%;
   }
-  &__info{
+  &__info {
     flex-basis: calc(41% - 50px);
-
   }
-  &__item{
+  &__item {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -121,13 +121,30 @@ a {
     border-right: none;
     border-radius: 20px 0 0 20px;
     margin-right: 80px;
-    margin-bottom: 19px;
+    padding: 30px;
     position: relative;
-    &::after {
+    box-sizing: border-box;
+    transition: $tr;
+    &:hover {
+      background-color: $accent;
+      border-color: $accent;
+      cursor: pointer;
+      &::after {
+        opacity: 1;
+      }
+      .banner__decor {
+        background-color: $accent;
+        border-color: $accent;
+      }
+    }
+    & + & {
+      margin-top: 19px;
+    }
+    &::before {
       content: '';
       display: block;
       width: 80px;
-      height: 151px;
+      height: 149px;
       background-image: url("../images/banner-info-decor.svg");
       background-repeat: no-repeat;
       background-size: contain;
@@ -135,28 +152,46 @@ a {
       top:-1px;
       right: -80px;
     }
-    p {
-      font-weight: 200;
-      font-size: 24px;
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 149px;
+      background-image: url("../images/banner-info-decor-hover.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top:-1px;
+      right: -80px;
+      opacity: 0;
+      transition: $tr;
+    }
+  }
+  &__text {
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 110%;
+    //padding-left: 30px;
+    margin-bottom: 0;
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: 32px;
       line-height: 110%;
-      padding-left: 30px;
-        span {
-          display: block;
-          font-weight: 700;
-          font-size: 32px;
-          line-height: 110%;
-        }
     }
   }
   &__decor {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: -2px;
+    top: 0;
     right: -80px;
-    img {
-      border: 1px solid $light;
-      border-radius: 10px;
-      padding: 10px;
-    }
+    border: 1px solid $light;
+    border-radius: 10px;
+    transition: $tr;
   }
   &__title{
     color: $light;
