@@ -125,45 +125,40 @@ a {
     position: relative;
     box-sizing: border-box;
     transition: $tr;
+    z-index: 1;
     &:hover {
-      background-color: $accent;
-      border-color: $accent;
-      cursor: pointer;
-      &::after {
+      &::before{
+        width: 100%;
         opacity: 1;
+        transform: translate(0) scale(1);
       }
+      cursor: pointer;
       .banner__decor {
         background-color: $accent;
         border-color: $accent;
+        &::after {
+          transform: translate(0) scale(1);
+          opacity: 1;
+        }
       }
     }
     & + & {
       margin-top: 19px;
     }
-    &::before {
+    &::before{
       content: '';
       display: block;
-      width: 80px;
-      height: 149px;
-      background-image: url("../images/banner-info-decor.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
+      width: 0;
+      height: 148px;
+      background-color: $accent;
+      border: 1px solid $accent;
       position: absolute;
-      top:-1px;
-      right: -80px;
-    }
-    &::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 149px;
-      background-image: url("../images/banner-info-decor-hover.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: absolute;
-      top:-1px;
-      right: -80px;
+      top: -2px;
+      left: -1px;
+      border-radius: 20px 0 0 20px;
+      z-index: -1;
       opacity: 0;
+      transform: translate(100%) scale(0);
       transition: $tr;
     }
   }
@@ -171,7 +166,6 @@ a {
     font-weight: 200;
     font-size: 24px;
     line-height: 110%;
-    //padding-left: 30px;
     margin-bottom: 0;
     span {
       display: block;
@@ -192,6 +186,33 @@ a {
     border: 1px solid $light;
     border-radius: 10px;
     transition: $tr;
+    &::before {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 149px;
+      background-image: url("../images/banner-info-decor.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: -2px;
+      right: 0;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 149px;
+      transform: translate(-900%) scale(0);
+      background-image: url("../images/banner-info-decor-hover.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: -2px;
+      right: 0;
+      opacity: 0;
+      transition: $tr;
+    }
   }
   &__title{
     color: $light;
