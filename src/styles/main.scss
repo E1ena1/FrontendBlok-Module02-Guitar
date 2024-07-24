@@ -114,7 +114,7 @@ a {
   background-image: url("../images/bg-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 50px;
+  border-radius: $br-max;
   padding: 100px 50px;
   margin-top: 135px;
   gap: 50px;
@@ -251,7 +251,7 @@ a {
     text-transform: uppercase;
     background-color: $accent;
     padding: 54px 420px;
-    border-radius: 20px;
+    border-radius: $br-min;
     border: 1px solid $accent;
     transition: $tr;
     cursor: pointer;
@@ -265,7 +265,7 @@ a {
 
 .banner-box {
   border: 1px solid $light;
-  border-radius: 20px;
+  border-radius: $br-min;
   margin-bottom: 130px;
   padding: 30px 332px 17px 30px;
   position: relative;
@@ -308,7 +308,7 @@ a {
     color: $grey;
     position: relative;
     border: 1px solid $grey;
-    border-radius: 50px;
+    border-radius: $br-max;
     padding: 10px 38px;
     width: 223px;
     &::before {
@@ -402,7 +402,7 @@ a {
     height: 707px;
     background-color: $dark;
     border: 1px solid $dark;
-    border-radius: 50px;
+    border-radius: $br-max;
     position: relative;
     transition: $tr;
     overflow: hidden;
@@ -430,7 +430,7 @@ a {
     object-fit: cover;
     position: absolute;
     bottom: 0;
-    border-radius: 50px;
+    border-radius: $br-max;
     overflow: hidden;
   }
   &__name {
@@ -472,7 +472,7 @@ a {
       line-height: 110%;
       letter-spacing: 0.3rem;
       color: #7027E2;
-      border-radius: 20px;
+      border-radius: $br-min;
       border: none;
       width: 100%;
       display: flex;
@@ -499,13 +499,13 @@ a {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    border-radius: 20px;
+    border-radius: $br-min;
   }
   &__list {
     list-style-type: none;
    // padding-left: 0;
     padding: 20px 25px 20px 30px;
-    border-radius: 20px;
+    border-radius: $br-min;
     background-color: $light;
   }
   &__item {
@@ -519,5 +519,32 @@ a {
     &:last-child {
       border-bottom: none;
     }
+  }
+}
+
+.steps {
+  border: 1px solid $light;
+  border-radius: $br-max;
+  background: linear-gradient(180deg, #1f2023 0%, #7027e2 50%, #1f2023 100%);
+  padding-top: 150px;
+  padding-bottom: 150px;
+  margin-top: 35px;
+  margin-bottom: 100px;
+  &__item {
+    background-color: $light;
+    width: 435px;
+    border-radius: $br-max;
+    padding: 30px 30px 20px 30px;
+  }
+  &__list {
+    display: flex;
+    gap: 30px;
+    margin-top: 65px;
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: $dark;
+      }
   }
 }
