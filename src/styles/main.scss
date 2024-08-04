@@ -37,6 +37,9 @@ button {
   position: fixed;
   top: 0;
   z-index: 999;
+  @media (max-width: $r_tab) {
+    height: 66px;
+  }
   &::before{
     display: block;
     content: '';
@@ -47,6 +50,9 @@ button {
     top: 0;
     left: 0;
     z-index: -1;
+    @media (max-width: $r_tab) {
+      top: -5px;
+    }
   }
   &__logo {
     background-color: $accent;
@@ -75,6 +81,10 @@ button {
       position: absolute;
       top: 0;
       right: -68px;
+      @media (max-width: $r_tab) {
+       // height: 66px;
+        top: -5px;
+      }
     }
   }
   &__info {
@@ -84,6 +94,9 @@ button {
     position: relative;
     @media (max-width: $r_desk) {
       padding: 17px 20px 0 20px;
+    }
+    @media (max-width: $r_tab) {
+      padding: 20px 20px 0 20px;
     }
     &::before{
       content: '';
@@ -96,6 +109,11 @@ button {
       right: 251px;
       @media (max-width: $r_desk) {
         right: 199px;
+      }
+      @media (max-width: $r_tab) {
+        right: 167px;
+       // height: 66px;
+        top: -5px;
       }
     }
     &::after{
@@ -121,6 +139,9 @@ button {
         border-bottom: 1px solid $accent;
       }
     }
+    @media (max-width: $r_tab) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -129,6 +150,9 @@ button {
     svg {
       width: 400px;
       height: 31px;
+      @media (max-width: $r_desk) {
+        width: clamp(300px, 39vw, 400px);
+      }
     }
   }
   &._min {
@@ -147,8 +171,9 @@ button {
   padding-right: 45px;
   box-sizing: border-box;
   @media (max-width: $r_desk) {
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 1000px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -161,11 +186,22 @@ button {
   padding: 100px 50px;
   margin-top: 135px;
   gap: 50px;
+  @media (max-width: $r_desk_full){
+    flex-direction: column;
+  }
+  @media (max-width: $r_desk_full) {
+    padding: 80px 30px;
+  }
   &__main {
     flex-basis: 59%;
   }
   &__info {
     flex-basis: calc(41% - 50px);
+    @media (max-width: $r_desk_full){
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
   }
   &__item {
     display: flex;
@@ -181,6 +217,7 @@ button {
     box-sizing: border-box;
     transition: $tr;
     z-index: 1;
+
     @media (hover: hover) {
       &:hover {
         &::before{
@@ -195,12 +232,28 @@ button {
           &::after {
             transform: translate(0) scale(1);
             opacity: 1;
+            @media (max-width: ($r_desk - 24px)) {
+              opacity: 0;
+            }
           }
         }
       }
     }
+    @media (max-width: $r_desk_full) {
+      padding: 30px 0 30px 30px;
+    }
+    @media (max-width: ($r_desk - 24px)) {
+      justify-content: center;
+      padding: 25px 30px 25px 100px;
+      margin-right: 0;
+      border-radius: $br-min;
+      border-right: 1px solid $light;
+    }
     & + & {
       margin-top: 19px;
+      @media (max-width: $r_desk_full){
+       margin-top: 0;
+      }
     }
     &::before{
       content: '';
@@ -219,6 +272,10 @@ button {
       transform: scale(0);
       transform-origin: bottom left;
       transition: $tr;
+      @media (max-width: ($r_desk - 24px)) {
+        border-radius: 20px;
+        transform-origin: top center;
+      }
     }
   }
   &__text {
@@ -226,11 +283,19 @@ button {
     font-size: 24px;
     line-height: 110%;
     margin-bottom: 0;
+    @media (max-width: $r_desk) {
+      font-size: 18px;
+      line-height: 200%;
+    }
     span {
       display: block;
       font-weight: 700;
       font-size: 32px;
       line-height: 110%;
+      @media (max-width: $r_desk) {
+        font-size: 20px;
+        line-height: 150%;
+      }
     }
   }
   &__decor {
@@ -245,6 +310,11 @@ button {
     border: 1px solid $light;
     border-radius: 10px;
     transition: $tr;
+    @media (max-width: ($r_desk - 24px)) {
+      top: calc(50% - 25px);
+      right: inherit;
+      left: 30px;
+    }
     &::before {
       content: '';
       display: block;
@@ -256,6 +326,9 @@ button {
       position: absolute;
       top: -2px;
       right: 0;
+      @media (max-width: ($r_desk - 24px)) {
+        display: none;
+      }
     }
     &::after {
       content: '';
@@ -284,6 +357,13 @@ button {
     max-width: 750px;
     margin-top: 0;
     margin-bottom: 20px;
+    @media (max-width: $r_desk_full) {
+      font-size: clamp(50px, 4vw + 1rem, 64px);
+    }
+    @media (max-width: $r_desk) {
+      margin-bottom: 6px;
+
+    }
 
   }
   &__btn {
@@ -305,6 +385,9 @@ button {
         background-color: transparent;
       }
     }
+    @media (max-width: $r_desk_full) {
+      padding: 55px 200px;
+    }
   }
 }
 
@@ -314,12 +397,22 @@ button {
   margin-bottom: 130px;
   padding: 30px 332px 17px 30px;
   position: relative;
+  @media (max-width: $r_desk_full_over) {
+    padding-right: clamp(200px, 20vw, 332px);
+  }
+  @media (max-width: $r_desk_full) {
+    margin-bottom: 50px;
+    padding-right: 332px;
+  }
   &__title {
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     margin-top: 0;
+    @media (max-width: $r_desk) {
+      margin-bottom: 35px;
+    }
   }
   &__text {
     font-size: 24px;
@@ -328,12 +421,36 @@ button {
     max-width: 565px;
     margin-top: 0;
     margin-bottom: 0;
+    @media (max-width: $r_desk_full) {
+      font-size: 22px;
+    }
+    @media (max-width: $r_desk) {
+      max-width: 410px;
+      font-size: 20px;
+     // line-height: 140%;
+      padding-bottom: 10px;
+    }
   }
   &__img {
     position: absolute;
     &._electroguitar {
       top: -80px;
       right: -30px;
+      @media (max-width: $r_desk_full_over){
+        width: clamp(220px, 22vw, 332px);
+        top: inherit;
+        bottom: -68px;
+      }
+      @media (max-width: $r_desk_full){
+        width: auto;
+        top: -80px;
+        bottom: inherit;
+        right: -10px;
+      }
+      @media (max-width: $r_desk) {
+        top: -76px;
+        right: -29px;
+      }
     }
   }
 }
@@ -345,6 +462,9 @@ button {
   gap: 64px;
   margin-top: 125px;
   animation: move-left 20s infinite linear alternate;
+  @media (max-width: $r_desk) {
+    margin-top:77px;
+  }
 
   &__text {
     font-weight: 200;
@@ -354,7 +474,7 @@ button {
     position: relative;
     border: 1px solid $grey;
     border-radius: $br-max;
-    padding: 10px 38px;
+    padding: 13px 38px;
     width: 223px;
     &::before {
       content: '';
