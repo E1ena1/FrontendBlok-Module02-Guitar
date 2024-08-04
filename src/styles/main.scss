@@ -192,6 +192,10 @@ button {
   @media (max-width: $r_desk_full) {
     padding: 80px 30px;
   }
+  @media (max-width: $r_desk - 24px) {
+    padding-top: 45px;
+    padding-bottom: 50px;
+  }
   &__main {
     flex-basis: 59%;
   }
@@ -217,13 +221,16 @@ button {
     box-sizing: border-box;
     transition: $tr;
     z-index: 1;
-
     @media (hover: hover) {
       &:hover {
         &::before{
           width: 100%;
           opacity: 1;
           transform: scale(1);
+          @media (max-width: ($r_desk - 24px)) {
+            opacity: 0;
+            cursor: none;
+          }
         }
         cursor: pointer;
         .banner__decor {
@@ -248,6 +255,7 @@ button {
       margin-right: 0;
       border-radius: $br-min;
       border-right: 1px solid $light;
+      height: 100px;
     }
     & + & {
       margin-top: 19px;
@@ -275,6 +283,7 @@ button {
       @media (max-width: ($r_desk - 24px)) {
         border-radius: 20px;
         transform-origin: top center;
+        opacity: 0;
       }
     }
   }
@@ -286,6 +295,11 @@ button {
     @media (max-width: $r_desk) {
       font-size: 18px;
       line-height: 200%;
+    }
+    @media (max-width: $r_desk - 24px) {
+      font-size: 20px;
+      line-height: 110%;
+
     }
     span {
       display: block;
@@ -362,9 +376,7 @@ button {
     }
     @media (max-width: $r_desk) {
       margin-bottom: 6px;
-
     }
-
   }
   &__btn {
     display: block;
@@ -388,6 +400,9 @@ button {
     @media (max-width: $r_desk_full) {
       padding: 55px 200px;
     }
+    @media (max-width: $r_desk - 24px) {
+      padding: 42px 200px;
+    }
   }
 }
 
@@ -403,6 +418,9 @@ button {
   @media (max-width: $r_desk_full) {
     margin-bottom: 50px;
     padding-right: 332px;
+  }
+  @media (max-width: $r_desk - 24px) {
+   margin-bottom: 30px;
   }
   &__title {
     font-size: 24px;
@@ -451,6 +469,12 @@ button {
         top: -76px;
         right: -29px;
       }
+      @media (max-width: $r_desk - 24px) {
+          top: -50px;
+          right: 25px;
+          width: 243px;
+
+      }
     }
   }
 }
@@ -464,6 +488,9 @@ button {
   animation: move-left 20s infinite linear alternate;
   @media (max-width: $r_desk) {
     margin-top:77px;
+  }
+  @media (max-width: $r_desk - 24px) {
+    margin-top: 59px;
   }
 
   &__text {
